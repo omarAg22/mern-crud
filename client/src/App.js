@@ -1,11 +1,11 @@
 import Axios from 'axios';
 import { useState, useEffect } from 'react';
 export default function App() {
-  const apiUrl ='http://localhost:3001';
+  const apiUrl = 'http://localhost:3001';
   const [users, setUsers] = useState([]);
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     Axios.get(`${apiUrl}/users`)
@@ -13,8 +13,9 @@ export default function App() {
       .catch((error) => console.error(error));
   }, [users]);
   const createUser = () => {
-    Axios.post(`${apiUrl}/createUser`, {name, age, email })
-    .then((res) => res.data);
+    Axios.post(`${apiUrl}/createUser`, { name, age, email }).then(
+      (res) => res.data
+    );
   };
   return (
     <>
@@ -30,9 +31,22 @@ export default function App() {
         );
       })}
       <div>
-        <input type="text" placeholder="Enter your name" onChange={e=>setName(e.target.value)}/>
-        <input type="number" placeholder="Enter your age" onChange={e=>setAge(e.target.value)}/>
-        <input type="text" placeholder="Enter your email"onChange={e=>setEmail(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Enter your name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Enter your age"
+          onChange={(e) => setAge(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter your email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <p>omar</p>
         <button onClick={createUser}>Create new user</button>
       </div>
     </>
