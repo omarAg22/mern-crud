@@ -8,13 +8,23 @@ app.use(cors());
 
 //connect to DB
 const username = process.env.USERNAME,
-      password = process.env.PASSWORD,
-      database = process.env.DB;
+  password = process.env.PASSWORD,
+  database = process.env.DB;
 
 const mongoose = require('mongoose');
-mongoose.connect(
-  `mongodb+srv://${username}:${password}@cluster0.ozaatmx.mongodb.net/${database}?retryWrites=true&w=majority`
-);
+mongoose
+  .connect(
+    `mongodb+srv://${username}:${password}@usersmanagment.72an7h0.mongodb.net/?retryWrites=true&w=majority`
+  )
+  .then(() => {
+    console.log('database connected');
+    app.listen(_Port, () => {
+      console.log(`server running to port ${_Port}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 //import User model
 const UserModel = require('./models/Users');
@@ -31,8 +41,4 @@ app.post('/createUser', async (req, res) => {
   const newUser = new UserModel(user);
   await newUser.save();
   res.json(user);
-});
-
-app.listen(_Port, () => {
-  console.log("let's do it ");
 });

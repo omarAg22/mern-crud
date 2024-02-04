@@ -1,38 +1,94 @@
-.App {
+/* App.css */
+
+/* Couleurs */
+:root {
+  --primary-color: #007bff; /* Couleur principale (bleu) */
+  --secondary-color: #6c757d; /* Couleur secondaire (gris) */
+  --success-color: #28a745; /* Couleur de succès (vert) */
+  --danger-color: #dc3545; /* Couleur de danger (rouge) */
+  --input-bg-color: #f8f9fa; /* Couleur de fond des inputs */
+  --input-border-color: #ced4da; /* Couleur de bordure des inputs */
+}
+
+.app {
+  font-family: Arial, sans-serif;
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.user-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+}
+
+.user-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--input-border-color);
+  border-radius: 25px;
+  background-color: var(--input-bg-color);
+  color: var(--primary-color);
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.user-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+}
+
+.user-form button {
+  background-color: var(--primary-color);
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.user-form button:hover {
+  background-color: var(--secondary-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-card {
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+}
+
+.user-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-card li {
+  margin: 5px 0;
 }
