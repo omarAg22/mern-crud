@@ -8,6 +8,7 @@ export default function App() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
 
   useEffect(() => {
     Axios.get(`${apiUrl}/users`)
